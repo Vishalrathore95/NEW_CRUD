@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Edit Student</title>
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #fff;
+      padding: 20px;
+    }
+    h1.heading {
+      background-color: #FAD5DC;
+      padding: 20px;
+      border-radius: 12px;
+      color: black;
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    section.main {
+      box-shadow: 0 4px 14px rgb(0 0 0 / 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .form-section {
+      padding: 20px;
+      border-radius: 12px;
+      background: #D7F2F9;
+      width: 40%;
+    }
+    .form-section h2 {
+      color: black;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #D7F2F9;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .form-section label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .form-section input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .form-section button {
+      padding: 10px 20px;
+      background: #2DA649;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .form-section button:hover {
+      background: #ff7391;
+    }
+  </style>
+</head>
+<body> 
+    <h1 class="heading">Function Based View ModelForm Crud Project</h1>
+
+    <section class="main">
+      <div class="form-section">
+        <h2>Edit Student Information</h2>
+        <form action="{% url 'update_data' item.id %}" method="post">
+          {% csrf_token %}
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" value="{{ item.name }}">    
+
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" value="{{ item.email }}">    
+
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" value="{{ item.password }}">    
+
+          <button>Save</button>
+        </form>
+      </div>
+    </section>
+
+</body>
+</html>
